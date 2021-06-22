@@ -1,0 +1,67 @@
+<div class="d-flex">
+  <nav ngbNav #nav="ngbNav" class="nav-tabs nav-pills" orientation="vertical">
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Wyniki</a>
+      <ng-template ngbNavContent>
+        <div class="content d-flex">
+          <div class="ml-auto mr-auto">
+            <h3>Wyniki pacjentów przydzielonych do mnie</h3>
+          </div>
+        </div>
+
+        <div
+          *ngFor="let examination of myExaminations"
+          class="d-flex flex-row py-1"
+        >
+          <div class="flex-column w-10">
+            {{examination.id}}
+          </div>
+          <div class="flex-column w-25">
+            {{examination.name}}
+          </div>
+          <div class="flex-column w-25">
+            <a [href]=examination.file_path target="_blank">pobierz plik z wynikami</a>
+          </div>
+        </div>
+
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Poproś o konsultację</a>
+      <ng-template ngbNavContent>
+        <div class="content d-flex">
+          <div class="ml-auto mr-auto">
+            <h3>Skonsultuj wyniki swoich pacjentów</h3>
+          </div>
+        </div>
+        <div
+          *ngFor="let examination of myExaminations"
+          class="d-flex flex-row py-1"
+        >
+          <div class="flex-column w-10">
+            {{examination.id}}
+          </div>
+          <div class="flex-column w-25">
+            {{examination.name}}
+          </div>
+          <div class="flex-column w-25">
+            <div ngbDropdown>
+              <button ngbDropdownToggle>Poproś o konsultację</button>
+              <div ngbDropdownMenu>
+                <button
+                  ngbDropdownItem
+                  *ngFor="let doctor of doctors"
+                >
+                  {{doctor.first_name}} {{doctor.last_name}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </ng-container>
+  </nav>
+
+  <div [ngbNavOutlet]="nav" class="mt-2 ml-4"></div>
+</div>

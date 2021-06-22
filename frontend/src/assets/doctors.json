@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "first_name": "Krzysztof",
+    "last_name": "Jarzyna",
+    "specialization": "urolog"
+  },
+  {
+    "id": 2,
+    "first_name": "Marzena",
+    "last_name": "Kownacka",
+    "specialization": "pediatra"
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "name": "Morfologia krwi",
+    "consulted": true,
+    "date": "25.03.2020",
+    "file_path": "/assets/examinations/examination1.pdf",
+    "comments": [
+      {
+        "consultantId": 3,
+        "comment": "Wszystkie parametry poprawne",
+        "date": "27.03.2020"
+      }
+    ],
+    "patientId": 1,
+    "consultantIds": [
+      3
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Krzywa cukrowa",
+    "consulted": true,
+    "date": "25.03.2021",
+    "file_path": "/assets/examinations/examination2.pdf",
+    "comments": [
+      {
+        "consultantId": 5,
+        "comment": "Cukier podniesiony, zalecana konsultacja z diabetologiem",
+        "date": "27.03.2021"
+      }
+    ],
+    "patientId": 1,
+    "consultantIds": [
+      5
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Krzywa cukrowa",
+    "file_path": "/assets/examinations/examination3.pdf",
+    "consulted": false,
+    "date": "25.04.2021",
+    "comments": [],
+    "patientId": 1,
+    "consultantIds": []
+  }
+]

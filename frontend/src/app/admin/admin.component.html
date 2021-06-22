@@ -1,0 +1,84 @@
+<div class="d-flex">
+  <nav ngbNav #nav="ngbNav" class="nav-tabs nav-pills" orientation="vertical">
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Uprawnienia</a>
+      <ng-template ngbNavContent>
+        <div class="content d-flex">
+          <div class="ml-auto mr-auto">
+            <h3>Uprawnienia użytkowników</h3>
+          </div>
+        </div>
+
+        <div
+          *ngFor="let doctor of doctors"
+          class="d-flex flex-row py-1"
+        >
+          <div class="flex-column w-10">
+            {{doctor.id}}
+          </div>
+          <div class="flex-column w-25">
+            {{doctor.first_name}} {{doctor.last_name}}
+          </div>
+          <div class="flex-column w-25">
+            <div ngbDropdown>
+              <button ngbDropdownToggle>Zmień uprawnienia</button>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>
+                  Admin
+                </button>
+                <button ngbDropdownItem>
+                  Lekarz
+                </button>
+                <button ngbDropdownItem>
+                  Pacjent
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="w-10">
+            <button>Usuń użytkownika</button>
+          </div>
+        </div>
+
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Przydzielanie wyników</a>
+      <ng-template ngbNavContent>
+        <div class="content d-flex">
+          <div class="ml-auto mr-auto">
+            <h3>Przydziel wyniki do lekarzy</h3>
+          </div>
+        </div>
+
+        <div
+          *ngFor="let examination of examinations"
+          class="d-flex flex-row py-1"
+        >
+          <div class="flex-column w-10">
+            {{examination.id}}
+          </div>
+          <div class="flex-column w-25">
+            {{examination.name}}
+          </div>
+          <div class="flex-column w-25">
+            <div ngbDropdown>
+              <button ngbDropdownToggle>Przydziel</button>
+              <div ngbDropdownMenu>
+                <button
+                  ngbDropdownItem
+                  *ngFor="let doctor of doctors"
+                >
+                  {{doctor.first_name}} {{doctor.last_name}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </ng-container>
+  </nav>
+
+  <div [ngbNavOutlet]="nav" class="mt-2 ml-4"></div>
+</div>
